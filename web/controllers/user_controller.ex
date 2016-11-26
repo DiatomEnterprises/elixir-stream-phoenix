@@ -28,7 +28,6 @@ defmodule ElixirStream.UserController do
     end
   end
 
-
   def sign_out(conn, _params) do
     conn
     |> put_flash(:info, "You have logged out!")
@@ -37,11 +36,6 @@ defmodule ElixirStream.UserController do
   end
 
   def register_form(conn, _params) do
-    render(conn, "register_form.html", changeset: User.changeset(%User{}))
-  end
-
-
-  def register_form(conn, _register) do
     render(conn, "register_form.html", changeset: User.changeset(%User{}))
   end
 
@@ -58,13 +52,13 @@ defmodule ElixirStream.UserController do
     end
   end
 
-
-  def redirect_if_authenticated(conn, opts) do
+  def redirect_if_authenticated(conn, _opts) do
     if conn.assigns[:current_user] do
       conn
       |> put_flash(:info, "You have already logged in!")
       |> redirect(to: entry_path(conn, :index))
+    else
+      conn
     end
-    conn
   end
 end

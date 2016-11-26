@@ -9,13 +9,15 @@ config :elixir_stream, ElixirStream.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+# Configure your database
 config :elixir_stream, ElixirStream.Repo,
   adapter: Ecto.Adapters.Postgres,
-  host: "localhost",
+  username: "postgres",
+  password: "postgres",
   database: "elixir_stream_phoenix_test",
+  hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
 config :elixir_stream, :basic_auth,
   username: "admin",
   password: "admin"
-

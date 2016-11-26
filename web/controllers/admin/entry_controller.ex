@@ -46,7 +46,7 @@ defmodule ElixirStream.Admin.EntryController do
   def create(conn, %{"entry" => entry_params}) do
     changeset = Entry.changeset_with_admin(%Entry{}, entry_params)
     if changeset.valid? do
-      entry = ElixirStream.Repo.insert!(changeset)
+      ElixirStream.Repo.insert!(changeset)
       conn
       |> put_flash(:info, "Entry created successfully.")
       |> redirect(to: admin_entry_path(conn, :index))
@@ -74,12 +74,10 @@ defmodule ElixirStream.Admin.EntryController do
     entry = Repo.one(from(e in Entry, where: e.id == ^id ))
     if entry do
       Repo.delete(entry)
-      message = "Entry deleted successfully."
+      put_flash(conn, :info, "Entry deleted successfully.")
     else
-      message = "Not found"
+      put_flash(conn, :info, "Not found")
     end
-    conn
-    |> put_flash(:info, message)
     |> redirect(to: admin_entry_path(conn, :index))
   end
 end

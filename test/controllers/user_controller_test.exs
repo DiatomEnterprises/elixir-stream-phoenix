@@ -1,14 +1,13 @@
 defmodule ElixirStream.UserControllerTest do
   use ElixirStream.ConnCase
 
-  test "GET /register_form" do
-    conn = get conn(), "/register_form"
-    assert conn.resp_body =~ "Username"
+  test "GET /register_form", %{conn: conn} do
+    resp_conn = get(conn, "/register_form")
+    assert html_response(resp_conn, 200) =~ "Username"
   end
 
-  test "POST /registers" do
-    # TO DO need fix!!!
-    # conn = post conn(), "/register"
-    # assert conn.resp_body =~ "Username"
+  test "POST /registers", %{conn: conn} do
+    resp_conn = post(conn, "/register", user: %{})
+    assert html_response(resp_conn, 200) =~ "Username"
   end
 end

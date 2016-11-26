@@ -18,6 +18,6 @@ defmodule ElixirStream.LayoutView do
   end
 
   defp gravatar_md5(email) do
-    Crypto.md5(email)
+    ElixirStream.Crypto.md5(email)
   end
 end

@@ -1,4 +1,4 @@
-defmodule Crypto do
+defmodule ElixirStream.Crypto do
   def md5(data) do
     :erlang.md5(data)
     |> :erlang.bitstring_to_list

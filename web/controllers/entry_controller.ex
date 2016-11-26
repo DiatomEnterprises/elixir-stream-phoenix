@@ -16,7 +16,7 @@ defmodule ElixirStream.EntryController do
 
   def create(%Plug.Conn{assigns: %{current_user: current_user}} = conn, %{"entry" => entry_params}) do
     case ElixirStream.CreateEntryActionForExistingUser.persist(entry_params, current_user, conn) do
-      {:ok, %Entry{} = entry} ->
+      {:ok, %Entry{} = _entry} ->
         conn
         |> put_flash(:info, "Entry created successfully.")
         |> redirect(to: entry_path(conn, :index))
@@ -27,7 +27,7 @@ defmodule ElixirStream.EntryController do
 
   def create(conn, %{"entry" => entry_params}) do
     case ElixirStream.CreateEntryActionForGuestUser.persist(entry_params, conn) do
-      {:ok, %Entry{} = entry} ->
+      {:ok, %Entry{} = _entry} ->
         conn
         |> put_flash(:info, "Entry created successfully.")
         |> redirect(to: entry_path(conn, :index))

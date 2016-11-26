@@ -4,7 +4,7 @@ defmodule ElixirStream.ConnCase do
   tests that require setting up a connection.
 
   Such tests rely on `Phoenix.ConnTest` and also
-  imports other functionality to make it easier
+  import other functionality to make it easier
   to build and query models.
 
   Finally, if the test case interacts with the database,
@@ -20,12 +20,11 @@ defmodule ElixirStream.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      # Alias the data repository and import query/model functions
       alias ElixirStream.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 2]
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
 
-      # Import URL helpers from the router
       import ElixirStream.Router.Helpers
 
       # The default endpoint for testing
@@ -34,10 +33,12 @@ defmodule ElixirStream.ConnCase do
   end
 
   setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ElixirStream.Repo)
+
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(ElixirStream.Repo, [])
+      Ecto.Adapters.SQL.Sandbox.mode(ElixirStream.Repo, {:shared, self()})
     end
 
-    :ok
+    {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

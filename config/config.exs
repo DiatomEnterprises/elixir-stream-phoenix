@@ -4,17 +4,17 @@
 # This configuration file is loaded before any dependency and
 # is restricted to this project.
 use Mix.Config
+config :elixir_stream,
+  ecto_repos: [ElixirStream.Repo]
 
 # Configures the endpoint
 config :elixir_stream, ElixirStream.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
   secret_key_base: "Bh92d59cbz3kKIfaFxeqEK/8LUPHV4tiirttImfeIVS0f94WByg3wo0yDABTTQY3",
-  debug_errors: false,
-  pubsub: [name: ElixirStream.PubSub,
-           adapter: Phoenix.PubSub.PG2],
-  session: [store: :cookie,
-           key: "gp6cONncGLws1zaQYhxJ9w=="]
+  render_errors: [accepts: ~w(html json)],
+  pubsub: [name: KlziiChat.PubSub,
+           adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

@@ -8,8 +8,8 @@ defmodule ElixirStream.FeedView do
   def date_format(entry) do
     {:ok, date } = entry.inserted_at
     |> Ecto.DateTime.to_iso8601
-    |> DateFormat.parse("{ISOz}")
-    {:ok, date} = DateFormat.format(date, "%a, %d %b %Y %H:%M:%S %z", :strftime)
+    |> Timex.parse("{ISOz}")
+    {:ok, date} = Timex.format(date, "%a, %d %b %Y %H:%M:%S %z", :strftime)
     date
   end
 
