@@ -3,7 +3,7 @@ lock '3.4.0'
 set :default_env,   { mix_env: "prod", port: 3000}
 
 set :application, 'elixir.stream'
-set :repo_url, 'git@github.com:janjiss/elixir-stream-phoenix.git'
+set :repo_url, 'git@github.com:DiatomEnterprises/elixir-stream-phoenix.git'
 
 set :deploy_to, '/var/www/elixirstreamphoenix'
 
@@ -162,4 +162,3 @@ namespace :deploy do
   end
 
 end
-
