@@ -4,7 +4,7 @@
     <div class="title">Sign in</div>
     <hr>
 
-    <%= form_for @conn, user_path(@conn, :log_in), [name: :log_in_info, class: "form-horizontal"], fn f -> %>
+    <%= form_for @conn, user_path(@conn, :log_in), [as: :log_in_info, class: "form-horizontal"], fn f -> %>
     <%= if f.errors != [] do %>
       <div class="alert alert-danger">
         <p>Oops, something went wrong! Please check the errors below:</p>

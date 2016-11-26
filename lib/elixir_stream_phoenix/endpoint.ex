@@ -1,6 +1,5 @@
 defmodule ElixirStream.Endpoint do
   use Phoenix.Endpoint, otp_app: :elixir_stream
-  socket "/socket", ElixirStream.UserSocket
 
   # Serve at "/" the given assets from "priv/static" directory
   plug Plug.Static,
