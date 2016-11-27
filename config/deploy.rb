@@ -31,7 +31,8 @@ namespace :dependencies do
       within(release_path) do
         execute(:mix, "local.hex", "--force")
         execute(:mix, "local.rebar", "--force")
-        execute(:mix, "deps.get", "--force")
+        execute(:mix, "deps.get", "--only prod", "--force")
+        execute(:mix, "compile.protocols")
       end
     end
   end
