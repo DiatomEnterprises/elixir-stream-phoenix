@@ -1,4 +1,4 @@
-lock '3.4.0'
+lock '3.6.1'
 
 set :default_env,   { mix_env: "prod", port: 3000}
 
@@ -29,6 +29,8 @@ namespace :dependencies do
   task :phoenix do
     on roles(:app) do |host|
       within(release_path) do
+        execute(:mix, "local.hex", "--force")
+        execute(:mix, "local.rebar", "--force")
         execute(:mix, "deps.get", "--force")
       end
     end

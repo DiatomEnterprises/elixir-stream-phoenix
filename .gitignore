@@ -2,6 +2,7 @@
 /_build
 /cover
 /deps
+/log
 /*.ez
 
 # Generate on crash by the VM
