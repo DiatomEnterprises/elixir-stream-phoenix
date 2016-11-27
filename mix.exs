@@ -19,7 +19,7 @@ defmodule ElixirStream.Mixfile do
   def application do
     [mod: {ElixirStream, []},
      applications: [:phoenix, :cowboy, :logger, :exrm, :earmark,
-      :comeonin, :postgrex, :phoenix_html, :phoenix_ecto, :gettext,
+      :postgrex, :phoenix_html, :phoenix_ecto, :gettext,
       :timex, :extwitter, :oauth, :plug_basic_auth, :httpoison]]
   end
 

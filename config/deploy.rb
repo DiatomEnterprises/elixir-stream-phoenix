@@ -36,10 +36,10 @@ namespace :dependencies do
     end
   end
 
-  task :npm do
+  task :yarn do
     on roles(:app) do |host|
       within(release_path) do
-        execute(:npm, "install")
+        execute(:yarn, "install")
       end
     end
   end
@@ -139,7 +139,7 @@ namespace :deploy do
 
   task :build do
     invoke("dependencies:phoenix")
-    invoke("dependencies:npm")
+    invoke("dependencies:yarn")
     invoke("phoenix:brunch")
     invoke("phoenix:digest")
     invoke("phoenix:release")
