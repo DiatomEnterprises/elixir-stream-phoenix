@@ -4,7 +4,7 @@ defmodule ElixirStream.Entry do
   schema "entries" do
     field :email, :string
     field :author_name, :string
-    field :title, :string
+    field :title, :string, default: ""
     field :tweet_message, :string
     field :scheduled_time, Ecto.DateTime
     field :tweet_posted, :boolean
@@ -57,8 +57,11 @@ defmodule ElixirStream.Entry do
   end
 
   def set_slug(changeset) do
-    slug = Ecto.Changeset.get_field(changeset, :title) |>
-    String.strip |> String.downcase |> String.replace(~r/([^a-z0-9])+/, "-")
-    change(changeset, %{slug: slug})
+    slug =
+      Ecto.Changeset.get_field(changeset, :title)
+      |> String.trim
+      |> String.downcase
+      |> String.replace(~r/([^a-z0-9])+/, "-")
+    put_change(changeset, :slug, slug)
   end
 end
