@@ -4,7 +4,7 @@
     <atom:link href="<%= entry_url(@conn, :index) %>" rel="self" type="application/rss+xml" />
     <title>ElixirStream</title>
     <description>Community driven place for all things Elixir</description>
-    <link><%= entry_url(@conn, :index) %></link>
+    <link><%= feed_url(@conn, :index) %>.xml</link>
     <%= for entry <- @items do %>
       <item>
         <title>
