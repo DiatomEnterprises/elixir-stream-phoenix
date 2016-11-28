@@ -20,7 +20,7 @@ defmodule ElixirStream.Mixfile do
     [mod: {ElixirStream, []},
      applications: [:phoenix, :cowboy, :logger, :exrm, :earmark,
       :postgrex, :phoenix_html, :phoenix_ecto, :gettext, :comeonin,
-      :timex, :extwitter, :oauth, :plug_basic_auth, :httpoison]]
+      :timex, :plug_basic_auth, :httpoison]]
   end
 
   # Specifies which paths to compile per environment.
@@ -43,8 +43,8 @@ defmodule ElixirStream.Mixfile do
       {:earmark, "~> 1.0"},
       {:timex, "~> 3.1"},
       {:gettext, "~> 0.12"},
-      {:oauth, github: "tim/erlang-oauth"},
-      {:extwitter, "~> 0.7.2"},
+      # {:oauth, github: "tim/erlang-oauth"},
+      # {:extwitter, "~> 0.7.2"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:plug_basic_auth, github: "janjiss/plug_basic_auth"}
     ]

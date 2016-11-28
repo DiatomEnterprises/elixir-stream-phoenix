@@ -5,8 +5,8 @@ defmodule ElixirStream.Tweeted do
   def tweeted(%Entry{} = entry) do
       changeset = Entry.changeset_with_admin(entry, %{tweet_posted: true})
     if changeset.valid? do
-      Repo.update(changeset)
-      ExTwitter.update(entry.tweet_message)
+      # Repo.update(changeset)
+      # ExTwitter.update(entry.tweet_message)
     else
       false
     end

@@ -34,12 +34,12 @@ config :elixir_stream, :basic_auth,
   username: "admin",
   password: "admin"
 
-config :extwitter, :oauth, [
-   consumer_key: "",
-   consumer_secret: "",
-   access_token: "",
-   access_token_secret: ""
-  ]
+# config :extwitter, :oauth, [
+#    consumer_key: "",
+#    consumer_secret: "",
+#    access_token: "",
+#    access_token_secret: ""
+#   ]
 
 config :elixir_stream, ElixirStream.Repo,
   adapter: Ecto.Adapters.Postgres,
