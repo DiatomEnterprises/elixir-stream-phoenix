@@ -34,6 +34,9 @@ config :elixir_stream, :basic_auth,
   username: "admin",
   password: "admin"
 
+config :elixir_stream, :captcha,
+  secret: "6LdYuvYSAAAAAD7rvLmY8avq_Tbadi3Kpus4YlTg"
+
 # config :extwitter, :oauth, [
 #    consumer_key: "",
 #    consumer_secret: "",

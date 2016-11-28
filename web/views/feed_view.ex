@@ -6,10 +6,7 @@ defmodule ElixirStream.FeedView do
   def parse_markdown(markdown), do: Earmark.to_html(markdown)
 
   def date_format(entry) do
-    {:ok, date } = entry.inserted_at
-    |> Ecto.DateTime.to_iso8601
-    |> Timex.parse("{ISOz}")
-    {:ok, date} = Timex.format(date, "%a, %d %b %Y %H:%M:%S %z", :strftime)
+    {:ok, date} = Timex.format(entry.inserted_at, "%a, %d %b %Y %H:%M:%S %z", :strftime)
     date
   end
 

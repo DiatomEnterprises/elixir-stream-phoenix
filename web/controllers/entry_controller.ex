@@ -20,7 +20,7 @@ defmodule ElixirStream.EntryController do
         conn
         |> put_flash(:info, "Entry created successfully.")
         |> redirect(to: entry_path(conn, :index))
-      {:error, %Ecto.Changeset{} = changeset} ->
+      {:error, changeset} ->
         render conn, "new.html", changeset: changeset
     end
   end
@@ -31,7 +31,7 @@ defmodule ElixirStream.EntryController do
         conn
         |> put_flash(:info, "Entry created successfully.")
         |> redirect(to: entry_path(conn, :index))
-      {:error, %Ecto.Changeset{} = changeset} ->
+      {:error, changeset} ->
         render conn, "new.html", changeset: changeset
     end
   end
