@@ -9,7 +9,6 @@ config :elixir_stream,
 
 # Configures the endpoint
 config :elixir_stream, ElixirStream.Endpoint,
-  url: [host: "localhost"],
   root: Path.dirname(__DIR__),
   secret_key_base: "Bh92d59cbz3kKIfaFxeqEK/8LUPHV4tiirttImfeIVS0f94WByg3wo0yDABTTQY3",
   render_errors: [accepts: ~w(html json)],
