@@ -58,7 +58,7 @@ defmodule ElixirStream.Admin.EntryController do
   end
 
   def tweeted(conn, %{"id" => id}) do
-      entry = Repo.one(from(e in Entry, where: e.id == ^id and e.tweet_posted == false))
+      # entry = Repo.one(from(e in Entry, where: e.id == ^id and e.tweet_posted == false))
       # if ElixirStream.Tweeted.tweeted(entry) do
         # message = "Entry Tweeted"
       # else
