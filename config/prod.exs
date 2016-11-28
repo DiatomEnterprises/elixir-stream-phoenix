@@ -7,8 +7,8 @@ use Mix.Config
 # You should also configure the url host to something
 # meaningful, we use this information when generating URLs.
 config :elixir_stream, ElixirStream.Endpoint,
-  http: [port:  80],
-  url: [host: "elixirstream.com"],
+  http: [port: 3000],
+  url: [host: "localhost", port: 3000],
   cache_static_manifest: "priv/static/manifest.json",
   server: true
 

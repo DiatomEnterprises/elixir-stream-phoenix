@@ -77,7 +77,7 @@ end
   task :cleanup do
     on roles(:app) do |host|
       within(release_path) do
-        execute(:mix, "deps.clean", "--all")
+        # execute(:mix, "deps.clean", "--all")
       end
     end
   end
